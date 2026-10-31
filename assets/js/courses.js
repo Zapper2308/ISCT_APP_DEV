@@ -5,13 +5,14 @@
   const browser = document.querySelector('.course-browser');
   if (!browser) return;
 
-  const icons = { coding: 'bi-code-slash', civil: 'bi-buildings', mechanical: 'bi-gear', achademic: 'bi-mortarboard' };
+  const icons = { coding: 'bi-code-slash', civil: 'bi-buildings', mechanical: 'bi-gear', academic: 'bi-mortarboard' };
   const categoryNames = {
     'coding & development': 'coding',
     'civil & architechture': 'civil',
     'civil & architecture': 'civil',
     'mechanical & design': 'mechanical',
-    'academic': 'academic'
+    'academic': 'academic',
+    'achademic': 'academic'
   };
   const buttons = [...browser.querySelectorAll('[data-course-category]')];
   const panel = browser.querySelector('#course-dropdown');
@@ -20,6 +21,9 @@
   const carousel = browser.querySelector('.course-carousel');
   const previous = browser.querySelector('#course-carousel-previous');
   const next = browser.querySelector('#course-carousel-next');
+  const searchForm = document.getElementById('course-search-form');
+  const searchInput = document.getElementById('course-search-input');
+  const searchSubmit = document.getElementById('course-search-submit');
   const brochurePopup = document.getElementById('course-brochure-popup');
   const brochureImage = document.getElementById('course-brochure-image');
   const brochureStatus = document.getElementById('course-brochure-status');
@@ -154,7 +158,7 @@
         if (!Array.isArray(filenames) || filenames.some(name => typeof name !== 'string' || /[\\/]/.test(name) || name.startsWith('_') || !/\.js$/i.test(name) || name.toLowerCase() === 'course-list.js')) {
           throw new Error('Check course_details/course-list.js. List course .js filenames only.');
         }
-        const result = { coding: [], civil: [], mechanical: [], achademic: [], errors: [] };
+        const result = { coding: [], civil: [], mechanical: [], academic: [], errors: [] };
         const entries = [...new Set(filenames)];
         const loaded = await Promise.allSettled(entries.map(loadCourseFile));
         loaded.forEach((entry, index) => {
@@ -319,13 +323,15 @@
     requestVersion++;
     const trigger = activeButton;
     buttons.forEach(button => button.setAttribute('aria-expanded', 'false'));
+    searchSubmit.setAttribute('aria-expanded', 'false');
     panel.hidden = true;
     activeButton = null;
     if (restoreFocus && trigger) trigger.focus({ preventScroll: true });
   }
 
-  async function openPanel(button) {
-    if (activeButton === button) {
+  async function openPanel(button, query = null) {
+    const searching = query !== null;
+    if (activeButton === button && !searching) {
       closePanel();
       return;
     }
@@ -333,11 +339,12 @@
     const version = ++requestVersion;
     activeButton = button;
     buttons.forEach(item => {
-      item.setAttribute('aria-expanded', String(item === button));
-      item.classList.toggle('course-category-featured', item === button);
+      item.setAttribute('aria-expanded', String(!searching && item === button));
+      item.classList.toggle('course-category-featured', !searching && item === button);
     });
+    searchSubmit.setAttribute('aria-expanded', String(searching));
     panel.setAttribute('aria-labelledby', button.id);
-    track.setAttribute('aria-label', button.textContent + ' course cards');
+    track.setAttribute('aria-label', searching ? 'Courses matching ' + query : button.textContent + ' course cards');
     track.replaceChildren();
     carousel.hidden = true;
     setStatus('Loading courses…');
@@ -346,12 +353,18 @@
     try {
       const catalog = await loadCatalog();
       if (version !== requestVersion) return;
-      const category = button.dataset.courseCategory;
-      const courses = catalog[category];
-      track.replaceChildren(...courses.map(course => createCard(course, icons[category])));
+      let courses;
+      if (searching) {
+        const terms = query.toLocaleLowerCase().split(/\s+/).filter(Boolean);
+        courses = Object.keys(icons).flatMap(category => catalog[category]).filter(course => {
+          const content = [course.course_name, course.tagline, course.overview, course.duration, course.delivery_mode, course.level, course.card.focus, ...course.skills, ...course.modules, ...course.learning_outcomes].join(' ').toLocaleLowerCase();
+          return terms.every(term => content.includes(term));
+        });
+      } else courses = catalog[button.dataset.courseCategory];
+      track.replaceChildren(...courses.map(course => createCard(course, icons[course.category])));
       carousel.hidden = courses.length === 0;
       const notices = [];
-      if (!courses.length) notices.push('No published courses in this category yet.');
+      if (!courses.length) notices.push(searching ? 'No courses match “' + query + '”.' : 'No published courses in this category yet.');
       if (catalog.errors.length) notices.push('Course files needing attention:\n' + catalog.errors.join('\n'));
       setStatus(notices.join('\n\n'), catalog.errors.length > 0);
       track.scrollLeft = 0;
@@ -376,6 +389,15 @@
   }
 
   buttons.forEach(button => button.addEventListener('click', () => openPanel(button)));
+  searchForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const query = searchInput.value.trim();
+    if (!query) {
+      searchInput.focus();
+      return;
+    }
+    openPanel(searchSubmit, query);
+  });
   previous.addEventListener('click', () => scrollCards(-1));
   next.addEventListener('click', () => scrollCards(1));
   track.addEventListener('scroll', syncArrows, { passive: true });
@@ -389,7 +411,7 @@
     if (event.key === 'Escape' && activeButton && !brochurePopup.open) closePanel(true);
   });
   document.addEventListener('pointerdown', event => {
-    if (activeButton && !brochurePopup.open && !browser.contains(event.target)) closePanel();
+    if (activeButton && !brochurePopup.open && !browser.contains(event.target) && !searchForm.contains(event.target)) closePanel();
   });
   document.getElementById('course-brochure-close').addEventListener('click', () => brochurePopup.close());
   brochurePopup.addEventListener('click', event => {
