@@ -1,0 +1,57 @@
+// Edit the course fields below. Keep window.registerISCTCourse( and the closing );.
+window.registerISCTCourse(
+{
+  "published": true,
+  "category": "Coding & Development",
+  "course_name": "Creative & Media Technologies",
+  "tagline": "Create. Animate. Visualize. Inspire.",
+  "delivery_mode": "",
+  "duration": "",
+  "level": "",
+  "overview": "",
+  "audience": "",
+  "prerequisites": [],
+  "skills": [
+    "3ds Max",
+    "Autodesk Maya",
+    "Blender",
+    "Photoshop",
+    "Premiere Pro",
+    "After Effects"
+  ],
+  "modules": [],
+  "learning_outcomes": [],
+  "projects": {
+    "count": "",
+    "description": "",
+    "capstone": ""
+  },
+  "certificate": "",
+  "batch": {
+    "next_batch": "",
+    "timings": "",
+    "location": "",
+    "batch_size": "",
+    "enrolled_students": ""
+  },
+  "fees": "",
+  "scholarship": "",
+  "contact": "",
+  "card": {
+    "icon": "",
+    "image": "",
+    "focus": "Animation, visualization & digital content production",
+    "banner": ""
+  },
+  "brochure": {
+    "show": false,
+    "file": ""
+  },
+  "program": {
+    "show": false,
+    "action": "expand",
+    "url": ""
+  },
+  "sort_order": 5
+}
+);

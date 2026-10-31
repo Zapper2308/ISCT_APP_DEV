@@ -1,0 +1,58 @@
+// Edit the course fields below. Keep window.registerISCTCourse( and the closing );.
+window.registerISCTCourse(
+{
+  "published": true,
+  "category": "Mechanical & Design",
+  "course_name": "Advanced Design & Generative Design",
+  "tagline": "Master Advanced Design Skills.",
+  "delivery_mode": "",
+  "duration": "",
+  "level": "",
+  "overview": "",
+  "audience": "",
+  "prerequisites": [],
+  "skills": [
+    "Advanced 3D Modelling",
+    "Surfacing",
+    "Sheet Metal",
+    "Weldments",
+    "Generative Design",
+    "Design Rendering",
+    "Autodesk ACP Preparation"
+  ],
+  "modules": [],
+  "learning_outcomes": [],
+  "projects": {
+    "count": "",
+    "description": "",
+    "capstone": ""
+  },
+  "certificate": "",
+  "batch": {
+    "next_batch": "",
+    "timings": "",
+    "location": "",
+    "batch_size": "",
+    "enrolled_students": ""
+  },
+  "fees": "",
+  "scholarship": "",
+  "contact": "",
+  "card": {
+    "icon": "",
+    "image": "",
+    "focus": "Advanced modelling, generative design & optimization",
+    "banner": ""
+  },
+  "brochure": {
+    "show": false,
+    "file": ""
+  },
+  "program": {
+    "show": false,
+    "action": "expand",
+    "url": ""
+  },
+  "sort_order": 3
+}
+);

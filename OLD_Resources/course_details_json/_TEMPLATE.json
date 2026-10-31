@@ -1,0 +1,47 @@
+{
+  "published": false,
+  "category": "Coding & Development",
+  "course_name": "",
+  "tagline": "",
+  "delivery_mode": "",
+  "duration": "",
+  "level": "",
+  "overview": "",
+  "audience": "",
+  "prerequisites": [],
+  "skills": [],
+  "modules": [],
+  "learning_outcomes": [],
+  "projects": {
+    "count": "",
+    "description": "",
+    "capstone": ""
+  },
+  "certificate": "",
+  "batch": {
+    "next_batch": "",
+    "timings": "",
+    "location": "",
+    "batch_size": "",
+    "enrolled_students": ""
+  },
+  "fees": "",
+  "scholarship": "",
+  "contact": "",
+  "card": {
+    "icon": "",
+    "image": "",
+    "focus": "",
+    "banner": ""
+  },
+  "brochure": {
+    "show": false,
+    "file": ""
+  },
+  "program": {
+    "show": false,
+    "action": "expand",
+    "url": ""
+  },
+  "sort_order": 0
+}

@@ -1,0 +1,60 @@
+// Edit the course fields below. Keep window.registerISCTCourse( and the closing );.
+window.registerISCTCourse(
+{
+  "published": true,
+  "category": "Coding & Development",
+  "course_name": "Web Programming & Full Stack Development",
+  "tagline": "Build Real Applications for the Real World.",
+  "delivery_mode": "",
+  "duration": "",
+  "level": "",
+  "overview": "",
+  "audience": "",
+  "prerequisites": [],
+  "skills": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "Node.js",
+    "Django",
+    "Spring Boot",
+    "MySQL",
+    "PostgreSQL"
+  ],
+  "modules": [],
+  "learning_outcomes": [],
+  "projects": {
+    "count": "",
+    "description": "",
+    "capstone": ""
+  },
+  "certificate": "",
+  "batch": {
+    "next_batch": "",
+    "timings": "",
+    "location": "",
+    "batch_size": "",
+    "enrolled_students": ""
+  },
+  "fees": "",
+  "scholarship": "",
+  "contact": "",
+  "card": {
+    "icon": "",
+    "image": "",
+    "focus": "Web technologies, databases & application development",
+    "banner": ""
+  },
+  "brochure": {
+    "show": false,
+    "file": ""
+  },
+  "program": {
+    "show": false,
+    "action": "expand",
+    "url": ""
+  },
+  "sort_order": 4
+}
+);

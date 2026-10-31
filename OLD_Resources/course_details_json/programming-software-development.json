@@ -1,0 +1,56 @@
+{
+  "published": true,
+  "category": "Coding & Development",
+  "course_name": "Programming & Software Development",
+  "tagline": "Learn to Think. Code. Solve. Build.",
+  "delivery_mode": "OFFLINE",
+  "duration": "26 Hours",
+  "level": "",
+  "overview": "",
+  "audience": "",
+  "prerequisites": [],
+  "skills": [
+    "C",
+    "C++ & OOP",
+    "Core Java",
+    "Core Python",
+    "Advanced C",
+    "Advanced Java",
+    "Advanced Python",
+    "Data Structures"
+  ],
+  "modules": [],
+  "learning_outcomes": [],
+  "projects": {
+    "count": "",
+    "description": "",
+    "capstone": ""
+  },
+  "certificate": "",
+  "batch": {
+    "next_batch": "",
+    "timings": "",
+    "location": "",
+    "batch_size": "",
+    "enrolled_students": ""
+  },
+  "fees": "",
+  "scholarship": "",
+  "contact": "",
+  "card": {
+    "icon": "",
+    "image": "",
+    "focus": "Problem solving, algorithms & application development",
+    "banner": ""
+  },
+  "brochure": {
+    "show": false,
+    "file": ""
+  },
+  "program": {
+    "show": false,
+    "action": "expand",
+    "url": ""
+  },
+  "sort_order": 1
+}
