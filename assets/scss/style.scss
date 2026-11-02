@@ -1,0 +1,67 @@
+@import 'variables';
+
+@import 'general';
+@import 'header';
+@import 'nav';
+@import 'hero';
+@import 'sections';
+@import 'footer';
+
+/* Old site palette: royal purple, navy, charcoal and pearl white.
+   Color overrides only; existing layout, typography and animation stay intact. */
+body {
+  background-color: #f8fafc;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #0f172a;
+}
+
+.breadcrumbs {
+  background: #1e3a8a;
+}
+
+.breadcrumbs h2,
+.why-us .content h3 {
+  color: #fff;
+}
+
+#footer,
+#footer .footer-top {
+  background: #071322;
+  color: #94a3b8;
+}
+
+#footer .footer-top .footer-contact p,
+#footer .footer-top .footer-links ul a {
+  color: #94a3b8;
+}
+
+#footer h3,
+#footer .footer-top h4,
+#footer .footer-newsletter h4,
+#footer strong {
+  color: #fff;
+}
+
+#footer .footer-top .footer-links ul i,
+#footer .credits a,
+#footer .footer-top .footer-links ul a:hover {
+  color: #a78bfa;
+}
+
+#footer .credits a:hover {
+  color: #fff;
+}
+
+#footer a {
+  color: #94a3b8;
+}
+
+#footer a:hover {
+  color: #a78bfa;
+}
+
+#footer .social-links a {
+  color: #fff;
+}

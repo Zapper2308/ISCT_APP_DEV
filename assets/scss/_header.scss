@@ -1,0 +1,139 @@
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  background: #fff;
+  transition: all 0.5s;
+  z-index: 997;
+  padding: 15px 0;
+  box-shadow: 0px 0 18px rgba(15, 23, 42, 0.08);
+
+  .logo {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: $font-secondary;
+
+    a {
+      color: $primary;
+    }
+
+    img {
+      max-height: 40px;
+    }
+  }
+} 
+
+#header > .container > .get-started-btn {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  /* Grow within the existing header space without making the bar taller. */
+  margin-block: -3px;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+  white-space: normal;
+  animation: student-course-glow 2.4s ease-out infinite;
+}
+
+@media (max-width: 1199px) {
+  #header > .container > .get-started-btn {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  #header > .container > .get-started-btn {
+    padding-inline: 12px;
+  }
+}
+
+@media (min-width: 992px) {
+  #header > .container {
+    --header-content-width: 960px;
+    --header-edge-gap: max(12px, calc((100vw - var(--header-content-width)) / 2 + 12px));
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+
+  #header .navbar {
+    justify-self: center;
+  }
+
+  #header .navbar > ul > li:first-child > a {
+    padding-left: 0;
+  }
+
+  #header > .container > .get-started-btn {
+    justify-self: center;
+    margin-left: 0;
+    width: max-content;
+    min-width: calc((100% + var(--header-edge-gap)) / 2);
+    max-width: calc(100% + var(--header-edge-gap) - 32px);
+    /* Center between the last page link and the viewport's right edge. */
+    transform: translateX(calc(var(--header-edge-gap) / 2));
+  }
+}
+
+@media (min-width: 1200px) {
+  #header > .container {
+    --header-content-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  #header > .container {
+    --header-content-width: 1320px;
+  }
+}
+
+@keyframes student-course-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.5), 0 0 14px rgba(124, 58, 237, 0.3);
+  }
+  75%, 100% {
+    box-shadow: 0 0 12px 24px rgba(124, 58, 237, 0), 0 0 14px rgba(124, 58, 237, 0.3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #header > .container > .get-started-btn {
+    animation: none;
+    box-shadow: 0 0 14px rgba(124, 58, 237, 0.3);
+  }
+}
+
+/**
+* Get Startet Button 
+*/
+.get-started-btn {
+  margin-left: 22px;
+  background: $primary;
+  color: $white;
+  border-radius: 50px;
+  padding: 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  display: inline-block;
+  &:hover {
+    background: #6d28d9;
+    color: $white;
+  }
+
+  @media (max-width: 768px) {
+    margin: 0 15px 0 0;
+    padding: 6px 18px;
+  }
+
+}
